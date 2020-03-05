@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+100.times do |item|
+  @products << {
+    name: item.Faker::Commerce.product_name,
+    description: item.Faker::Commerce.material,
+    price: item.Faker::Commerce.price,
+  }
+end
