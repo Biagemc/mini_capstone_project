@@ -5,11 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# 10.times do
+#   the_first_name = Faker::Name.first_name
+#   the_last_name = Faker::Name.last_name
 
-100.times do |item|
-  @products << {
-    name: item.Faker::Commerce.product_name,
-    description: item.Faker::Commerce.material,
-    price: item.Faker::Commerce.price,
-  }
-end
+#   contact = Contact.new(first_name: the_first_name, last_name: the_last_name, email: "#{the_first_name}.#{the_last_name}@gmail.com", phone_number: Faker::PhoneNumber.cell_phone)
+#   contact.save
+# end
+
+# 100.times do
+#   Product.create(
+#     name: Faker::Commerce.product_name,
+#     description: Faker::Commerce.material,
+#     price: Faker::Commerce.price,
+#   )
+# end
