@@ -24,18 +24,18 @@ class Api::ProductsController < ApplicationController
   def update
     the_id = params[:id]
     @product = Product.find_by(id: the_id)
-    @product.name = params[:name_input] || @product.name
-    @product.description = params[:description_input] || @product.description
-    @product.price = params[:price_input] || @product.price
-    @product.image_url = params[:image_url_input] || @product.image_url
+    @product.name = params[:name] || @product.name
+    @product.description = params[:description] || @product.description
+    @product.price = params[:price] || @product.price
+    @product.image_url = params[:image_url] || @product.image_url
     @product.save
     render "show.json.jb"
   end
 
   def destroy
-    the_id = params[:id]
-    product = Product.find_by(id: the_id)
+    product = Product.find_by(id: params[:id])
     product.destroy
-    render json: { message: "Product with id# #{the_id} was successfuly destroyed." }
+    # render "destroy.json.jb"
+    render json: { message: "Product was successfuly destroyed." }
   end
 end

@@ -3,5 +3,7 @@
   name: @product.name,
   description: @product.description,
   price: @product.price,
+  tax: @product.tax.round(2),
+  total: @product.total.round(2),
   image_url: @product.image_url,
 }

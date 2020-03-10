@@ -14,7 +14,7 @@
 # end
 
 # 100.times do
-#   Product.create(
+#   product = Product.create(
 #     name: Faker::Commerce.product_name,
 #     description: Faker::Commerce.material,
 #     price: Faker::Commerce.price,
