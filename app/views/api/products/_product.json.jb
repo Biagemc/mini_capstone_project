@@ -7,4 +7,5 @@
   tax: product.tax,
   total: product.total,
   image_url: product.image_url,
+  supplier_id: product.supplier.name,
 }
