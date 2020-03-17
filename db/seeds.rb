@@ -20,3 +20,14 @@
 #     price: Faker::Commerce.price,
 #   )
 # end
+
+# image = Image.new(label: "monitor", url: "https://secure-journal.hautehorlogerie.org/wp-content/uploads/2019/06/Panerai-Submersible-Bronzo.jpg", product_id: 57)
+
+# image.save
+
+# image = Image.new(label: "gloves", url: "https://i.pinimg.com/originals/42/19/af/4219af35bbcfdb25493370885643364d.jpg", product_id: 41)
+
+# image.save
+# image = Image.new(label: "keyboard", url: "https://cdn.thewirecutter.com/wp-content/uploads/2019/08/mechanicalkeyboards-lowres-2x1-0036.jpg", product_id: 2)
+
+# image.save

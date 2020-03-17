@@ -24,9 +24,9 @@ class Api::ProductsController < ApplicationController
       name: params[:name],
       description: params[:description],
       price: params[:price],
-      image_url: params[:image_url],
       supplier_id: params[:supplier_id],
     )
+
     if @product.save
       render "show.json.jb"
     else
@@ -39,7 +39,8 @@ class Api::ProductsController < ApplicationController
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
     @product.description = params[:description] || @product.description
-    @product.image_url = params[:image_url] || @product.image_url
+    @product.supplier_id = params[:supplier_id] || @product.supplier_id
+    @product.images.update(url: params[:image_url]) || @product.images
 
     if @product.save
       render "show.json.jb"
@@ -49,7 +50,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find_by(id: params[:id])
+    product = Product.find(params[:id])
     product.destroy
     # render "destroy.json.jb"
     render json: { message: "Product was successfuly destroyed." }
