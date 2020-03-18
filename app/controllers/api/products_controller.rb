@@ -25,6 +25,7 @@ class Api::ProductsController < ApplicationController
       description: params[:description],
       price: params[:price],
       supplier_id: params[:supplier_id],
+      user_id: current_user.id,
     )
 
     if @product.save
