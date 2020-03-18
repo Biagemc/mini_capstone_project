@@ -1,8 +1,19 @@
 class Api::OrdersController < ApplicationController
   def index
+    # p "*" * 20
+    # p current_user
+    # p "*" * 20
+    if current_user
+      @orders = current_user.orders
+    else
+      @orders = []
+    end
+    render "index.json.jb"
   end
 
   def show
+    @order = Order.find(params[:id])
+    render "show.json.jb"
   end
 
   def create

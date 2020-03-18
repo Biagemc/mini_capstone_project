@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
     post "/sessions" => "sessions#create"
 
+    get "/orders" => "orders#index"
+    get "/orders/:id" => "orders#show"
     post "/orders" => "orders#create"
   end
 end
