@@ -5,10 +5,10 @@ class Api::OrdersController < ApplicationController
     # p "*" * 20
     if current_user
       @orders = current_user.orders
+      render "index.json.jb"
     else
-      @orders = []
+      render json: {}, status: :unauthorized
     end
-    render "index.json.jb"
   end
 
   def show
@@ -17,24 +17,28 @@ class Api::OrdersController < ApplicationController
   end
 
   def create
-    product = Product.find_by(id: params[:product_id])
-    the_subtotal = params[:quantity].to_i * product.price
-    tax_rate = 0.09
-    the_tax = the_subtotal * tax_rate
-    the_total = the_subtotal + the_tax
+    if current_user
+      product = Product.find_by(id: params[:product_id])
+      the_subtotal = params[:quantity].to_i * product.price
+      tax_rate = 0.09
+      the_tax = the_subtotal * tax_rate
+      the_total = the_subtotal + the_tax
 
-    @order = Order.new(
-      user_id: current_user.id,
-      product_id: params[:product_id],
-      quantity: params[:quantity],
-      subtotal: the_subtotal,
-      tax: the_tax,
-      total: the_total,
-    )
-    if @order.save
-      render "show.json.jb"
+      @order = Order.new(
+        user_id: current_user.id,
+        product_id: params[:product_id],
+        quantity: params[:quantity],
+        subtotal: the_subtotal,
+        tax: the_tax,
+        total: the_total,
+      )
+      if @order.save
+        render "show.json.jb"
+      else
+        render json: { errors: @order.errors.full_messages }, status: :bad_request
+      end
     else
-      render json: { errors: @order.errors.full_messages }, status: :bad_request
+      render json: {}, status: :unauthorized
     end
   end
 end
