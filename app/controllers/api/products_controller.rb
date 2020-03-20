@@ -1,4 +1,6 @@
 class Api::ProductsController < ApplicationController
+  before_action :authenticate_admin, only: [:create, :update, :destroy]
+
   def index
     # @products = Product.where("name LIKE ?", "%#{params[:search]}%")
 
@@ -25,7 +27,6 @@ class Api::ProductsController < ApplicationController
       description: params[:description],
       price: params[:price],
       supplier_id: params[:supplier_id],
-      user_id: current_user.id,
     )
 
     if @product.save
