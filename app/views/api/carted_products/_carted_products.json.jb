@@ -2,7 +2,7 @@
   id: carted_product.id,
   user_id: carted_product.user_id,
   product_id: carted_product.product_id,
-  products: carted_product.product,
   quantity: carted_product.quantity,
   status: carted_product.status,
+  product: carted_product.product,
 }

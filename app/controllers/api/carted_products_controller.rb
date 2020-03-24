@@ -14,7 +14,17 @@ class Api::CartedProductsController < ApplicationController
     if @carted_product.save
       render "show.json.jb"
     else
-      render json: { errors: @cart.errors.full_messages }
+      render json: { errors: @carted_product.errors.full_messages }
+    end
+  end
+
+  def destroy
+    @carted_product = CartedProduct.find_by(id: params[:id])
+    @carted_product.update(status: "removed")
+    if @carted_product.save
+      render json: { message: "successfully removed from shopping cart" }
+    else
+      render json: { errors: @carted_product.errors.full_messages }
     end
   end
 end
