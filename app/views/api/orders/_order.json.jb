@@ -1,8 +1,8 @@
 {
   id: order.id,
   user: order.user_id,
-  product: order.product,
-  quantity: order.quantity,
+  # product: order.carted_products.products,
+  # quantity: order.carted_products.quantity,
   subtotal: order.subtotal,
   tax: order.tax,
   total: order.total,
