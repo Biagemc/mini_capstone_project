@@ -1,9 +1,9 @@
 <h1> This is all products avaiable:</h1>
 
 <% @products.map do |product| %>
+<p>id: <a href="/products/<%= product.id %>"> <%= product.id %> </a></p>
 <p>Name: <%= product.name %> </p>
 <p>Price: <%= product.price %> </p>
 <p>Description: <%= product.description %> </p>
-<%# <img src="<%= product.image_url %>">
-<hr> %>
+<hr>
 <% end %>

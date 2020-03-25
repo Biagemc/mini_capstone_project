@@ -1,5 +1,20 @@
-<h3> This is the product requested:</h3>
-<p>Name: <%= @product.name %> </p>
-<p>Price: <%= @product.price %> </p>
-<p>Description: <%= @product.description %> </p>
+<div class="single-product">
+  <h3> 
+    This is the product requested:
+  </h3>
+  <p>
+    Name: <%= @product.name %> 
+  </p>
+  <p>
+    Price: <%= @product.price %> 
+  </p>               
+  <p>
+    Description: <%= @product.description %> 
+  </p>
+  <p>
+    supplier_id: <%= @product.supplier.name %> 
+  </p>
+</div>
+
+<a href="/products">Return home</a>
 <hr>

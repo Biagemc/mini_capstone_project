@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
-    render "show.html.erb"
+    render "index.html.erb"
   end
 
   def show
