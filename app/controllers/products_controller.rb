@@ -12,4 +12,15 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     render "show.html.erb"
   end
+
+  def create
+    @product = Product.new(
+      name: params[:name],
+      description: params[:description],
+      price: params[:price],
+      supplier_id: params[:supplier_id],
+    )
+    @product.save
+    redirect_to "/products/#{@product.id}"
+  end
 end
