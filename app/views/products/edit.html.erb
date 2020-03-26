@@ -1,12 +1,13 @@
-<form action="/products" method="post">
+<form action="/products/<% @product.id %>" method="post">
+<input type="hidden" name="_method" value="patch ">
   <div>
-    Name: <input type="text" name="name">
+    Name: <input type="text" name="name" value="<%= @product.name%>" >
   </div>
   <div>
-   Description: <input type="text" name="description">
+   Description: <input type="text" name="description" value="<%= @product.description%>">
   </div>
   <div>
-   Price: <input type="text" name="price">
+   Price: <input type="text" name="price" value="<%= @product.price%>">
   </div>
   <div>
     <label for="supplier-select">Supplier id:</label>
@@ -17,7 +18,9 @@
         <% supplier.map do |supplier| %>
         <option value="<%= supplier.id %>"><%= supplier.name %></option>
       <% end %>
+    
+    
     </select>
   </div>
-  <input type="submit" value="Create">
+  <input type="submit" value="Edit">
 </form>

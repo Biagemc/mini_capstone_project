@@ -4,8 +4,15 @@
   <p>Price: <%= @product.price %> </p>                
   <p> Description: <%= @product.description %> </p>
   <p> supplier_id: <%= @product.supplier.name %> </p>
-  <p> images: <%= @product.images %> </p>
+  <img src="<%= @product.images %>">
 </div>
 
-<a href="/products">Return home</a>
+<a href="/products">Return</a>
+
+<a href="/products/<%= @product.id %>/edit" >Edit</a>
+
+<form action="/products/<%= @product.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Product">
+</form>
 <hr>
